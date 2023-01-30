@@ -1,10 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
+import React, {useState} from 'react';
+
+SplashScreen.preventAutoHideAsync();
+setTimeout(SplashScreen.hideAsync, 2000);
+
+const Image = require('./assets/concert.png');
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>Ticket Vault</Text>
+      <View style={styles.textInputContainer}>
+      <TextInput
+        placeholder="Number of Tickets"
+        name="ticket"
+        id="ticket"
+      />
+      </View>
+      <View style={styles.buttonContainer}>
+      <Button
+        title='Find The Cost'
+        onPress={ () => {
+          
+        }}
+      />
+      </View>
+      <Text>Ticket Cost: </Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -16,5 +39,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingBottom: 500,
   },
+  textInputContainer: {
+    height: 40,
+    paddingTop: 10,
+    paddingRight: 10,
+    paddingLeft: 10,
+    borderColor: 'black',
+    borderWidth: 1,
+  },
+  buttonContainer: {
+    borderColor: 'black',
+    borderWidth: 1,
+    backgroundColor: 'pink',
+  }
 });
